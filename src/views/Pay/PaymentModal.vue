@@ -20,7 +20,7 @@
                     <div v-for="(label, key) in personalFields" :key="key" class="form-group">
                         <label :for="key">{{ label }}:</label>
                         <input v-if="key !== 'doc_type' && key !== 'currency'" :id="key" v-model="form[key]" type="text"
-                            required :disabled="key === 'value'" />
+                            required :disabled="key === 'account'" />
                         <select v-else :id="key" v-model="form[key]" required>
                             <option v-for="option in options[key]" :key="option" :value="option">{{ option }}</option>
                         </select>
@@ -92,10 +92,10 @@ const cardFields = {
 };
 
 const card = ref(Object.fromEntries(Object.keys(cardFields).map(key => [key, ""])));
-card.value.number = "4575623182290326";
-card.value.exp_month = "12";
-card.value.exp_year = "2025";
-card.value.cvc = "123"
+card.value.number = import.meta.env.VITE_NUMBER_TARJET ?? "4575623182290326";
+card.value.exp_month = import.meta.env.VITE_EXT_MONTH_TARJET ?? "12";
+card.value.exp_year = import.meta.env.VITE_EXT_YEAR_TARJET ?? "2025";
+card.value.cvc = import.meta.env.VITE_EXT_CVC_TARJET ?? "123"
 
 const validatePersonalData = () => {
     return Object.keys(form.value).every(key => form.value[key] !== "");
