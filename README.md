@@ -2,12 +2,13 @@
 # Frontend conectado con api-efiempresa.
 En este proyecto consume una api de laravel 9, la cual cuenta con un crud de productos, un carrito, filtros, pago con epayco, paginación, autenticación por medio de sanctum, validación de roles, chequeo de estatus del token.
 
-![image](https://github.com/user-attachments/assets/37b848a4-f30b-4db1-a6d1-a2612afd24ae)
-
-![image](https://github.com/user-attachments/assets/ce0dde1b-a34c-4b30-8893-4b256d91d21f)
-
 ![image](https://github.com/user-attachments/assets/c97cc93d-539e-4359-a0a8-3c63bea917b6)
 ![image](https://github.com/user-attachments/assets/cbcfcd3e-dc53-4d30-8626-bad312e361a5)
+
+![image](https://github.com/user-attachments/assets/37b848a4-f30b-4db1-a6d1-a2612afd24ae)
+![image](https://github.com/user-attachments/assets/de395151-0f88-4606-9115-1ded5ba23a2e)
+
+![image](https://github.com/user-attachments/assets/ce0dde1b-a34c-4b30-8893-4b256d91d21f)
 
 
 Recordar configura la VITE_API_URL, dependiendo el api.
