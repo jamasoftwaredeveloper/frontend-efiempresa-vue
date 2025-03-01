@@ -1,0 +1,76 @@
+/* Contenedor principal del formulario */
+.auth-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Título del formulario */
+.auth-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Formulario con distribución vertical y espacio entre elementos */
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Estilo para inputs de email y password */
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus en inputs */
+.auth-container input[type="email"]:focus,
+.auth-container input[type="password"]:focus {
+  border-color: #42b983;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66, 185, 131, 0.2);
+}
+
+/* Botón de envío */
+.auth-container button {
+  padding: 0.75rem 1rem;
+  background-color: #42b983;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover en botón */
+.auth-container button:hover {
+  background-color: #35976a;
+}
+
+/* Estilo para el enlace de registro */
+.auth-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #42b983;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Hover en enlace */
+.auth-link:hover {
+  color: #2c7f5e;
+}

@@ -1,0 +1,28 @@
+.cart-toggle-btn {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background: white;
+  color: #42b983;
+  border: 2px solid #42b983;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out, background 0.3s ease;
+  z-index: 1001;
+}
+.cart-toggle-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: #f0f0f0;
+}
+
+.home-container {
+  padding: 20px;
+}

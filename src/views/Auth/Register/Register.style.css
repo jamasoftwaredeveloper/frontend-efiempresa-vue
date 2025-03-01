@@ -1,0 +1,75 @@
+/* Contenedor principal */
+.auth-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-align: center;
+}
+
+/* Título */
+.auth-container h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Formulario */
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Inputs */
+.auth-container input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto en focus */
+.auth-container input:focus {
+  border-color: #42b983;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66, 185, 131, 0.2);
+}
+
+/* Botón */
+.auth-container button {
+  padding: 0.75rem;
+  background-color: #42b983;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover en botón */
+.auth-container button:hover {
+  background-color: #35976a;
+  transform: scale(1.02);
+}
+
+/* Enlace */
+.auth-link {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #42b983;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Hover en enlace */
+.auth-link:hover {
+  color: #2c7f5e;
+}

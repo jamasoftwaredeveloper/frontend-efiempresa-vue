@@ -1,0 +1,11 @@
+<div class="auth-container">
+  <h1>Regístrate</h1>
+  <form @submit.prevent="handleRegister">
+    <input v-model="form.name" type="text" placeholder="Nombre" required />
+    <input v-model="form.email" type="email" placeholder="Email" required />
+    <input v-model="form.password" type="password" placeholder="Contraseña" required />
+    <input v-model="form.password_confirmation" type="password" placeholder="Confirmar contraseña" required />
+    <button type="submit">Registrarse</button>
+  </form>
+  <router-link to="/login" class="auth-link">¿Ya tienes cuenta? Inicia sesión</router-link>
+</div>

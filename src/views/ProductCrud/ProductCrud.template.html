@@ -1,0 +1,61 @@
+<div class="crud-container">
+  <h1>Gestión de Productos</h1>
+  <!-- Formulario de registro/edición -->
+  <form @submit.prevent="handleSubmit" class="crud-form">
+    <input
+      v-model="productForm.name"
+      type="text"
+      placeholder="Nombre del producto"
+      required
+    />
+    <input
+      v-model.number="productForm.price"
+      type="number"
+      placeholder="Precio"
+      step="0.01"
+      required
+    />
+    <input
+      v-model.number="productForm.stock"
+      type="number"
+      placeholder="Stock"
+      required
+    />
+    <input v-model="productForm.ean" type="text" placeholder="EAN" required />
+    <label class="active-label">
+      <span>Activo</span>
+      <input type="checkbox" v-model="productForm.active" />
+    </label>
+    <div class="form-buttons">
+      <button type="submit">{{ isEdit ? "Actualizar" : "Agregar" }}</button>
+      <button type="button" v-if="isEdit" @click="cancelEdit">Cancelar</button>
+    </div>
+  </form>
+
+  <!-- Listado de productos -->
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Activo</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>EAN</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(product, index) in products" :key="product.ean">
+        <td>{{ product.name }}</td>
+        <td>{{ product.active ? "Sí" : "No" }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.stock }}</td>
+        <td>{{ product.ean }}</td>
+        <td>
+          <button @click="editProduct(index)">Editar</button>
+          <button @click="deleteProduct(index)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
