@@ -44,7 +44,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from "vue";
+import { ref, defineProps, defineEmits, watchEffect } from "vue";
 import { onMounted } from "vue";
 import { useCartStore } from "../../store/cart";
 import Swal from "sweetalert2";
@@ -53,16 +53,6 @@ const props = defineProps({
     visible: { type: Boolean, default: false },
     total: { type: Boolean, default: false }
 });
-const cartStore = useCartStore();
-onMounted(async () => {
-    await cartStore.fetchCart(); // 🔹 Llamar fetchCart() en lugar de getCart()
-    form.value.account = cartStore.cart.total;
-});
-
-const emit = defineEmits(["close", "submitPayment"]);
-
-const activeTab = ref("personal");
-const messaje = ref("");
 const personalFields = {
     doc_type: "Tipo de Documento",
     doc_number: "Número de Documento",
@@ -76,13 +66,20 @@ const personalFields = {
     account: "Valor",
 };
 
+const form = ref(Object.fromEntries(Object.keys(personalFields).map(key => [key, ""])));
+
+watchEffect(() => {
+    form.value.account = props.total;
+});
+
+const emit = defineEmits(["close", "submitPayment"]);
+
+const activeTab = ref("personal");
+const messaje = ref("");
+
 const options = {
     doc_type: ["CC", "CE", "TI", "NIT"],
 };
-
-const form = ref(Object.fromEntries(Object.keys(personalFields).map(key => [key, ""])));
-
-form.value.account = props.total
 
 const cardFields = {
     number: "Número de Tarjeta",

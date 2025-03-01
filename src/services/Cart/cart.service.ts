@@ -49,7 +49,7 @@ export default {
     let resultado;
 
     Swal.fire({
-      title: "Eliminando carrito...",
+      title: "Realizando pago...",
       text: "Por favor, espera.",
       allowOutsideClick: false,
       didOpen: () => {

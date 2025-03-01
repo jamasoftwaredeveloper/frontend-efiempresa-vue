@@ -22,7 +22,6 @@ const total = ref(0);
 const isCartOpen = ref(false);
 const isPaymentModalOpen = ref(false);
 
-
 const toggleCart = () => {
     isCartOpen.value = !isCartOpen.value;
     getCart();
@@ -45,8 +44,6 @@ const getCart = async () => {
         console.error('Error al obtener el carrito:', error);
     }
 };
-
-
 
 onMounted(() => {
     getCart();
@@ -75,6 +72,7 @@ const removeFromCart = async (item) => {
 
 const openPaymentModal = () => {
     isPaymentModalOpen.value = true;
+    getCart();
 };
 
 const handlePayment = async (paymentData) => {

@@ -8,7 +8,7 @@
                 <img :src="item.image" :alt="item.name" class="cart-item-image" />
                 <div class="cart-item-details">
                     <p class="cart-item-name">{{ item.name }}</p>
-                    <p class="cart-item-price">$ {{ item.price.toFixed(2) }}</p>
+                    <p class="cart-item-price">$ {{ item.price }}</p>
                     <p class="cart-item-quantity">Cantidad: {{ item.quantity }}</p>
                     <div class="cart-actions">
                         <button @click="$emit('increase', item)" class="cart-btn">
