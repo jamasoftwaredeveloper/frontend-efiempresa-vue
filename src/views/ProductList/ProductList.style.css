@@ -14,3 +14,48 @@
     color: red;
     text-align: center;
   }
+/* Contenedor padre en fila */
+.search-filter-container {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaciado entre elementos */
+  justify-content: center; /* Centra horizontalmente */
+  flex-wrap: wrap; /* Para que no se desborde en pantallas pequeñas */
+  margin-bottom: 20px;
+}
+
+/* Estilos para los Inputs */
+.search-input, .filter-input {
+  width: 150px;
+  padding: 10px;
+  border: 2px solid #42b983;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Efecto Hover en Inputs */
+.search-input:hover, .filter-input:hover,
+.search-input:focus, .filter-input:focus {
+  border-color: #0056b3;
+  background: #f8f9fa;
+}
+
+/* Estilos del Botón */
+.search-button {
+  background-color: #42b983;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Efecto Hover en Botón */
+.search-button:hover {
+  background-color: #0da05e;
+}

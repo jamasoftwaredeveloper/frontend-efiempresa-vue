@@ -5,13 +5,34 @@ import { getHeaders } from "../../utils/api";
 
 /* Define la URL base de la API, puedes configurarla en un archivo .env */
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
+interface ProductResponse {
+  data: Product[];
+  meta: {
+    from: number;
+    total: number;
+    last_page: number;
+    current_page: number;
+    per_page: number;
+  };
+}
 
 /* Exporta un objeto con métodos para cada operación CRUD */
 export default {
   // Obtiene todos los productos
-  async getProducts(): Promise<Product[]> {
-    const response = await axios.get(`${API_URL}/products`, getHeaders());
-    return response.data.data;
+  async getProducts(
+    page: number =1,
+    search: string = "",
+    priceMax: number,
+    priceMin: number,
+    ean: string = ""
+  ): Promise<ProductResponse> {
+  
+    page =  typeof(page) === "object" ? 1: page;
+    const response = await axios.get(
+      `${API_URL}/products?page=${page}&search=${search}&price_max=${priceMax}&price_min=${priceMin}&ean=${ean}`,
+      getHeaders()
+    );
+    return response.data;
   },
 
   // Obtiene un producto por su EAN

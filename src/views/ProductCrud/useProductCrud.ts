@@ -6,6 +6,11 @@ import productService from "../../services/Product/product.service";
 export function useProductCrud() {
   // Array reactivo que almacenará los productos obtenidos de la API
   const products = ref<Product[]>([]);
+  const meta = ref<{ current_page: number; last_page: number; page: number }>({
+    current_page: 0,
+    last_page: 0,
+    page: 1,
+  });
 
   // Objeto reactivo para el formulario
   const productForm = reactive<Product>({
@@ -21,17 +26,32 @@ export function useProductCrud() {
   const editIndex = ref<number | null>(null);
 
   // Cargar productos desde la API al montar el componente
-  const loadProducts = async () => {
+  const loadProducts = async (
+    page: number = 1,
+    search: string,
+    priceMax: number,
+    priceMin: number,
+    ean: string
+  ) => {
     try {
-      const data = await productService.getProducts();
-      products.value = data;
+      const response = await productService.getProducts(
+        page,
+        search,
+        priceMax,
+        priceMin,
+        ean
+      );
+      meta.value.current_page = response.meta.current_page;
+      meta.value.last_page = response.meta.last_page;
+      meta.value.page = response.meta.from;
+      products.value = response.data;
     } catch (error) {
       console.error("Error al cargar productos:", error);
     }
   };
 
   onMounted(() => {
-    loadProducts();
+    loadProducts(meta.value.page, "", 0, 0, "");
   });
 
   // Función para agregar o actualizar un producto
@@ -98,6 +118,7 @@ export function useProductCrud() {
   };
 
   return {
+    meta,
     products,
     productForm,
     handleSubmit,

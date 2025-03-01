@@ -35,10 +35,11 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
   const authStore = useAuthStore();
+
+  const isAuthenticated = await authService.checkToken();
   if (to.meta.requiresAuth) {
-    const isAuthenticated = await authService.checkToken();
-    console.log("antes", to);
     if (!isAuthenticated) {
+      console.log("!isAuthenticated");
       next("/login");
     } else if (to.meta.role && !authStore.hasRole(to.meta.role)) {
       return next("/");
@@ -46,6 +47,9 @@ router.beforeEach(async (to, from, next) => {
       next();
     }
   } else {
+    if (isAuthenticated) {
+      return next("/");
+    }
     next();
   }
 });

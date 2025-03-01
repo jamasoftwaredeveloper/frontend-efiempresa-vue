@@ -2,6 +2,7 @@
 <template>
     <div class="product-card" :key="product.id">
         <img :src="product.image" :alt="product.name" class="product-image" />
+        <h3>Codigo:</h3> {{ product.ean }}
         <h3>{{ product.name }}</h3>
         <p>{{ product.description }}</p>
         <p class="price">$ {{ product.price }}</p>
