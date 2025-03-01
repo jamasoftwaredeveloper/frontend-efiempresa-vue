@@ -37,8 +37,7 @@ const ean = ref("");
 const searchQuery = ref("");
 const currentPage = ref(1);
 const totalPages = ref(1);
-
-
+const page = ref(1);
 function emitEvent() {
     emit("cartUpdated");
 }
